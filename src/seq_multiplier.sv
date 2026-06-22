@@ -10,7 +10,9 @@ module seq_multiplier #(
     output logic [2*N-1:0]   AQ
 );
 
-enum {IDLE, EXECUTE, DONE} present_state, next_state;
+typedef enum logic [1:0] {IDLE, EXECUTE, DONE} state_type;
+state_type present_state;
+state_type next_state;
 
 // control signals
 logic reset;
